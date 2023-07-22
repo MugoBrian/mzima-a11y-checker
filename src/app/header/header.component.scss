@@ -1,0 +1,59 @@
+.header {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  background: var(--neutral-light);
+  margin-bottom: 20px;
+
+  /* elevation-3 */
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15),
+    0px 4px 8px 3px rgba(0, 0, 0, 0.1);
+
+  &_logo {
+    width: 42px;
+    height: 40px;
+  }
+  &_text {
+    padding-block: 10px;
+    width: 105px;
+    height: 20px;
+  }
+  &_title {
+    color: white;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 24px */
+    
+    &_github {
+      display: flex;
+      height: 50px;
+      padding: 12px 24px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    
+  }
+}
+
+.header_logo_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-block: 12px;
+  margin-left: 24px;
+  width: 155px;
+  height: 40px;
+}
+
+a {
+  color: var(--neutral-white);
+
+  &:hover {
+    color: var(--primary-color-60);
+  }
+}

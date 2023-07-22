@@ -1,0 +1,17 @@
+.run_button {
+    display: flex;
+    width: 130px;
+    height: 40px;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--primary-color-60);
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &_icon {
+      width: 42px;
+      height: 42px;
+    }
+  }

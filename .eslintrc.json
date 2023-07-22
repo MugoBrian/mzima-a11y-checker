@@ -15,7 +15,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "mzimaA11yChecker",
+            "prefix": "checker",
             "style": "camelCase"
           }
         ],
@@ -23,7 +23,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "mzima-a11y-checker",
+            "prefix": "checker",
             "style": "kebab-case"
           }
         ]
