@@ -8,9 +8,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ButtonModule } from '../button/button.module';
 import { SelectEngineModule } from '../select-engine/select-engine.module';
+import { DataModule } from '../data/data.module';
+
 
 @NgModule({
   declarations: [TabsComponent],
@@ -25,6 +28,10 @@ import { SelectEngineModule } from '../select-engine/select-engine.module';
     MatProgressSpinnerModule,
     ButtonModule,
     SelectEngineModule,
+    MatSelectModule,
+    DataModule,
+    
+    
   ],
   exports: [TabsComponent],
 })

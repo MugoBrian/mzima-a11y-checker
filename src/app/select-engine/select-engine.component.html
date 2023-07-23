@@ -1,10 +1,16 @@
 <div class="form-row">
-    <mat-form-field class="input" appearance="outline">
-      <mat-label>Select Engine</mat-label>
-      <mat-select>
-        <mat-option> Axe DevTools</mat-option>
-        <mat-option> IBM Checker</mat-option>
-        <mat-option> Pa11y</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+  <mat-form-field
+    class="input"
+    appearance="outline"
+  >
+    <mat-label>Select Engine</mat-label>
+    <mat-select formControlName="tool" (ngModel)="(selectedEngine)" name="engine">
+      <mat-option
+        *ngFor="let engine of engines; let i = index"
+        [value]="engine"
+      >
+        {{ engine }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</div>

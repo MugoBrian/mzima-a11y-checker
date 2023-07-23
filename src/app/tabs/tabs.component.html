@@ -1,11 +1,15 @@
-<mat-tab-group class="mat_group" color="warn">
+<mat-tab-group
+  class="mat_group"
+  color="yellow"
+  [(selectedIndex)]="selectedTabIndex"
+>
   <mat-tab label="TestUrl" class="test_url">
     <ng-template mat-tab-label class="test_url">
       <span class="tab_header">Test Website</span>
       <mat-icon class="tab_link tab-icon" svgIcon="tab_link"></mat-icon>
     </ng-template>
     <div class="tab-content">
-      <form [formGroup]="codeTestingForm">
+      <form [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
         <div class="form-row">
           <mat-form-field class="input" appearance="outline">
             <mat-label>Your Website Url</mat-label>
@@ -16,7 +20,23 @@
             />
           </mat-form-field>
         </div>
-        <checker-select-engine></checker-select-engine>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Select Engine</mat-label>
+            <mat-select
+              formControlName="tool"
+              (ngModel)="(selectedEngine)"
+              name="engine"
+            >
+              <mat-option
+                *ngFor="let engine of engines; let i = index"
+                [value]="engine"
+              >
+                {{ engine }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
         <checker-button></checker-button>
       </form>
     </div>
@@ -27,7 +47,7 @@
       <mat-icon class="tab_code tab-icon" svgIcon="tab_code"></mat-icon>
     </ng-template>
     <div class="tab-content">
-      <form [formGroup]="codeTestingForm">
+      <form [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
         <div class="form-row">
           <mat-form-field class="input" appearance="outline">
             <mat-label>Your Code</mat-label>
@@ -43,6 +63,7 @@
             >
             </textarea>
           </mat-form-field>
+          <div #codeContainer></div>
         </div>
         <checker-select-engine></checker-select-engine>
         <checker-button></checker-button>
