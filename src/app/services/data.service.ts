@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, ViewContainerRef } from '@angular/core';
 import axe, { ElementContext } from 'axe-core';
 
 // import ace from 'accessibility-checker-engine';
@@ -9,21 +9,40 @@ import axe, { ElementContext } from 'axe-core';
 })
 export class DataService {
   constructor(private http: HttpClient) {}
-  checkUrl(codeInput: string, engine: string) {
-    if(engine === "Axe Dev"){
-      return this.http.get<unknown>(codeInput).pipe((data)=>{
-        return data;
-      });
-
-    }
-    return null;
-  }
   
-  checkCode(codeInput: string, engine: string) {
-    const code = codeInput + engine;
-    // axe.run(code, (err: unknown, results: unknown)=>{
-    //   if(err) throw err;
-    //   return results;
-    // })
+  
+  runAxeChecker(codeContainer: ViewContainerRef, htmlContent?: string, codeInput?: string) {
+    const tempElement = document.createElement('div');
+
+    if (htmlContent !== undefined) {
+      tempElement.innerHTML = htmlContent;
+    }
+    if (codeInput !== undefined) {
+      tempElement.innerHTML = codeInput;
+    }
+
+    if (codeContainer) {
+      codeContainer.clear();
+    }
+
+    // Append the temporary element to the ViewContainerRef
+    codeContainer?.element.nativeElement.appendChild(tempElement);
+
+    console.log(tempElement);
+
+    axe.run(tempElement, (err, results) => {
+      if (err) throw err;
+
+      // Handle the results
+      if (results.violations.length > 0) {
+        console.error('Accessibility violations:', results.violations);
+        // You can display the violations or take other actions here
+      } else {
+        console.log('No accessibility violations found.');
+        // Provide feedback to the user indicating accessibility is okay
+      }
+      codeContainer?.element.nativeElement.removeChild(tempElement);
+    });
   }
+
 }

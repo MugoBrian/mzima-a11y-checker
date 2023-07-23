@@ -14,6 +14,8 @@
           <mat-form-field class="input" appearance="outline">
             <mat-label>Your Website Url</mat-label>
             <input
+              required
+              pattern="/^(https?:\/\/).*/"
               matInput
               formControlName="codeInput"
               placeholder="Paste your url here https:// or http://"
@@ -37,6 +39,7 @@
             </mat-select>
           </mat-form-field>
         </div>
+        <div #codeContainer></div>
         <checker-button></checker-button>
       </form>
     </div>
