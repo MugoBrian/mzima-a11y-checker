@@ -1,52 +1,44 @@
-<mat-tab-group class="mat_group" color="warn">
-  <mat-tab label="TestUrl" class="test_url">
-    <ng-template mat-tab-label class="test_url">
-      <span class="tab_header">Test Website</span>
-      <mat-icon class="tab_link tab-icon" svgIcon="tab_link"></mat-icon>
-    </ng-template>
-    <div class="tab-content">
-      <form [formGroup]="codeTestingForm">
-        <div class="form-row">
-          <mat-form-field class="input" appearance="outline">
-            <mat-label>Your Website Url</mat-label>
-            <input
-              matInput
-              formControlName="codeInput"
-              placeholder="Paste your url here https:// or http://"
-            />
-          </mat-form-field>
-        </div>
-        <checker-select-engine></checker-select-engine>
-        <checker-button></checker-button>
-      </form>
-    </div>
-  </mat-tab>
-  <mat-tab label="TestUrl" labelClass="test_code">
-    <ng-template mat-tab-label class="test_code">
-      <span class="tab_header">Test Code</span>
-      <mat-icon class="tab_code tab-icon" svgIcon="tab_code"></mat-icon>
-    </ng-template>
-    <div class="tab-content">
-      <form [formGroup]="codeTestingForm">
-        <div class="form-row">
-          <mat-form-field class="input" appearance="outline">
-            <mat-label>Your Code</mat-label>
-            <textarea
-              matInput
-              cdkTextareaAutosize
-              rows="8"
-              cols="80"
-              cdkAutosizeMinRows="2"
-              cdkAutosizeMaxRows="7"
-              formControlName="codeInput"
-              placeholder="Paste your code here"
-            >
-            </textarea>
-          </mat-form-field>
-        </div>
-        <checker-select-engine></checker-select-engine>
-        <checker-button></checker-button>
-      </form>
-    </div>
-  </mat-tab>
-</mat-tab-group>
+<form [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
+  <div class="form-row">
+    <mat-form-field class="input" appearance="outline">
+      <mat-label>Your Code</mat-label>
+      <textarea
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="10"
+        formControlName="codeInput"
+        placeholder="Paste your code or url here"
+      >
+      </textarea>
+    </mat-form-field>
+  </div>
+  <div class="form-row">
+    <mat-form-field appearance="outline">
+      <mat-label>Select Engine</mat-label>
+      <mat-select
+      formControlName="tool"
+      (ngModel)="(selectedEngine)"
+      name="engine"
+      >
+      <mat-option
+      *ngFor="let engine of engines; let i = index"
+      [value]="engine"
+      >
+      {{ engine }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</div>
+<div class="run">
+  <button id="run_button" class="run_button">
+    Run Checker
+    <mat-icon
+    class="run_button_icon"
+    svgIcon="checker"
+    aria-labelledBy="#run_button"
+    ></mat-icon>
+  </button>
+</div>
+</form>
+<div #codeContainer></div>

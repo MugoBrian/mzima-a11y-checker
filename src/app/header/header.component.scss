@@ -1,11 +1,13 @@
 .header {
+  margin:0 auto;
   display: flex;
-  padding: 12px 24px;
+  padding: 10px 20px;
+  align-self: stretch;
   justify-content: space-between;
   align-items: center;
   color: white;
   background: var(--neutral-light);
-  margin-bottom: 20px;
+  margin-bottom: 3px;
 
   /* elevation-3 */
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.15),
@@ -17,7 +19,7 @@
   }
   &_text {
     padding-block: 10px;
-    width: 105px;
+    width: 100px;
     height: 20px;
   }
   &_title {
@@ -26,16 +28,14 @@
     font-style: normal;
     font-weight: 500;
     line-height: 150%; /* 24px */
-    
+
     &_github {
       display: flex;
-      height: 50px;
-      padding: 12px 24px;
+      height: 30px;
+      width: auto;
       justify-content: center;
       align-items: center;
-      gap: 10px;
     }
-    
   }
 }
 

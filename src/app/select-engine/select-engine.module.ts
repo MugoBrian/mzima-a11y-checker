@@ -9,8 +9,8 @@ import { SelectEngineComponent } from './select-engine.component';
   declarations: [SelectEngineComponent],
   imports: [
     CommonModule,
-    MatSelectModule,
     MatFormFieldModule,
+    MatSelectModule,
   ],
   exports: [SelectEngineComponent],
 })
