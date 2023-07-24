@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, ViewContainerRef } from '@angular/core';
-import axe, { ElementContext } from 'axe-core';
+import axe from 'axe-core';
 
 // import ace from 'accessibility-checker-engine';
 
@@ -11,7 +11,7 @@ export class DataService {
   constructor(private http: HttpClient) {}
   
   
-  runAxeChecker(codeContainer: ViewContainerRef, htmlContent?: string, codeInput?: string) {
+  async runAxeChecker(codeContainer: ViewContainerRef, htmlContent?: string, codeInput?: string) {
     const tempElement = document.createElement('div');
 
     if (htmlContent !== undefined) {
@@ -29,7 +29,7 @@ export class DataService {
     codeContainer?.element.nativeElement.appendChild(tempElement);
 
     console.log(tempElement);
-
+    
     axe.run(tempElement, (err, results) => {
       if (err) throw err;
 
@@ -43,6 +43,10 @@ export class DataService {
       }
       codeContainer?.element.nativeElement.removeChild(tempElement);
     });
+  }
+
+  fetchUrl(codeInput: string){
+    return this.http.get(codeInput, {responseType: 'text'});
   }
 
 }

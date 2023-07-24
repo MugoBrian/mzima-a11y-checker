@@ -25,9 +25,6 @@
   // height: 250px;
 }
 
-.test_url {
-  background-color: yellow;
-}
 .test_code {
   background-color: var(--primary-color-60);
 }
@@ -38,6 +35,23 @@
 }
 .tab_link {
   height: 20px;
+}
+
+.run_button {
+  display: flex;
+  width: 130px;
+  height: 40px;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color-60);
+  border-radius: 4px;
+  cursor: pointer;
+
+  &_icon {
+    width: 42px;
+    height: 42px;
+  }
 }
 
 

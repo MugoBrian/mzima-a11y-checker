@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { DataService } from '../services/data.service';
-import axe, { ElementContext } from 'axe-core';
-import { HttpClient, HttpRequest } from '@angular/common/http';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { SafeHtml } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'checker-tabs',
@@ -14,16 +13,13 @@ export class TabsComponent implements OnInit {
   public selectedTabIndex = 0;
   @ViewChild('codeContainer', { read: ViewContainerRef })
   codeContainer!: ViewContainerRef;
+ 
   codeTestingForm!: FormGroup;
   engine!: string;
   sanitizedHtmlContent: SafeHtml = '';
+  fetchData$!: Observable<string>;
 
-  constructor(
-    private fb: FormBuilder,
-    private http: HttpClient,
-    private dataService: DataService,
-    private sanitizer: DomSanitizer
-  ) {}
+  constructor(private fb: FormBuilder, private dataService: DataService) {}
   ngOnInit(): void {
     this.codeTestingForm = this.fb.group({
       codeInput: [''],
@@ -33,21 +29,21 @@ export class TabsComponent implements OnInit {
   }
   engines: string[] = ['AXE', 'Web AIM', 'IBM'];
   selectedEngine!: string;
-  
+
   runTest() {
     const codeInput = this.codeTestingForm.get('codeInput')?.value;
-    if (this.selectedTabIndex === 1) {
-      this.dataService.runAxeChecker(this.codeContainer,codeInput);
-      // Fetch the HTML Content
-    } else if (this.selectedTabIndex === 0) {
-      this.http.get(codeInput, { responseType: 'text' }).subscribe(
-        (htmlContent: string) => {
+    if (codeInput.startsWith('https://') || codeInput.startsWith('http://')) {
+      this.dataService.fetchUrl(codeInput).subscribe({
+        next: (htmlContent: string) => {
           this.dataService.runAxeChecker(this.codeContainer, htmlContent);
         },
-        (error: unknown) => {
-          console.error('Error fetching website content:', typeof(error));
-        }
-      );
+        error: (error: unknown) => {
+          console.error('Error fetching website content:', typeof error);
+        },
+      });
+    } else {
+      // const apiUrl = `/api/${codeInput}`;
+      this.dataService.runAxeChecker(this.codeContainer, codeInput);
     }
   }
 }
