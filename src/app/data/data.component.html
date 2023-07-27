@@ -1,16 +1,15 @@
 <div class="checker-data">
-
+  <ng-container *ngIf="!isLoading || results; else spinner">
+    <ng-container *ngIf="results">
+      <h2>Accessibility Violations</h2>
+      <ng-container *ngFor="let result of results.violations">
+        <checker-card [result]="result"></checker-card>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+  <!-- {{ results.violations }} -->
 </div>
-<h1>Your Results will Appear Here</h1>
-<table mat-table>
-  <thead>
-    <th>Hello</th>
-    <th>World</th>
-    <th>How</th>
-  </thead>
-  <tbody>
-    <td>Hello</td>
-    <td>World</td>
-    <td>How</td>
-  </tbody>
-</table>
+
+<ng-template #spinner>
+  <mat-spinner></mat-spinner>
+</ng-template>

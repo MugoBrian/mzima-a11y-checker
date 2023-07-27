@@ -63,7 +63,8 @@
           "browserTarget": "mzima-a11y-checker:build:production"
         },
         "development": {
-          "browserTarget": "mzima-a11y-checker:build:development" 
+          "browserTarget": "mzima-a11y-checker:build:development",
+          "proxyConfig": "./proxy.conf.json"
         }
       },
       "defaultConfiguration": "development"

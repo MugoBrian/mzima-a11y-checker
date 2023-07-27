@@ -1,44 +1,58 @@
-<form [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
-  <div class="form-row">
-    <mat-form-field class="input" appearance="outline">
-      <mat-label>Your Code</mat-label>
-      <textarea
-        matInput
-        cdkTextareaAutosize
-        cdkAutosizeMinRows="2"
-        cdkAutosizeMaxRows="10"
-        formControlName="codeInput"
-        placeholder="Paste your code or url here"
-      >
-      </textarea>
-    </mat-form-field>
+<div>
+  <div class="form-group">
+    <form class="form" [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
+      <div class="form-textarea form-row">
+        <mat-form-field class="input" appearance="outline">
+          <mat-label>Your Code</mat-label>
+          <textarea
+            matInput
+            required
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="2"
+            cdkAutosizeMaxRows="10"
+            formControlName="userInput"
+            placeholder="Paste your code or url here"
+          >
+          </textarea>
+          <mat-error
+            *ngIf="codeTestingForm.get('userInput')?.hasError('required')"
+          >
+            Kindly paste your code or website url
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Select Engine</mat-label>
+          <mat-select
+            formControlName="tool"
+            (ngModel)="(selectedEngine)"
+            name="engine"
+          >
+            <mat-option
+              *ngFor="let engine of engines; let i = index"
+              [value]="engine.name"
+            >
+              {{ engine.name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="run form-row">
+        <button
+          mat-button
+          id="run_button"
+          color="custom"
+          class="run_button"
+          [disabled]="isLoading || codeTestingForm.invalid"
+        >
+          Run Checker
+        </button>
+      </div>
+    </form>
   </div>
-  <div class="form-row">
-    <mat-form-field appearance="outline">
-      <mat-label>Select Engine</mat-label>
-      <mat-select
-      formControlName="tool"
-      (ngModel)="(selectedEngine)"
-      name="engine"
-      >
-      <mat-option
-      *ngFor="let engine of engines; let i = index"
-      [value]="engine"
-      >
-      {{ engine }}</mat-option
-      >
-    </mat-select>
-  </mat-form-field>
+  <div class="data-group">
+    Hello
+    <checker-data [results]="results" [isLoading]="isLoading"></checker-data>
+  </div>
 </div>
-<div class="run">
-  <button id="run_button" class="run_button">
-    Run Checker
-    <mat-icon
-    class="run_button_icon"
-    svgIcon="checker"
-    aria-labelledBy="#run_button"
-    ></mat-icon>
-  </button>
-</div>
-</form>
-<div #codeContainer></div>

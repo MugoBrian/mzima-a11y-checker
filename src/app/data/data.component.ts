@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Results } from '../interfaces/data.model';
 
 @Component({
   selector: 'checker-data',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./data.component.scss'],
 })
 export class DataComponent {
-
-  
+  @Input() results!: Results;
+  @Input() isLoading = false;
 }

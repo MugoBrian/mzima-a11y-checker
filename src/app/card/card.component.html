@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>Violation Errors</mat-card-header>
+  <mat-card-title class="card-title">{{ result.description }}</mat-card-title>
+  <mat-card-content>
+    <mat-chip disabled color="warn">{{ result.impact }}</mat-chip>
+    <ng-container *ngIf="result.nodes.length > 0">
+      <ng-container *ngFor="let node of result.nodes">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ node.failureSummary }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </ng-container>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,7 @@
+{
+  "engines": [
+    { "name": "Axe", "url": "/api/accessibility-check/axe/" },
+    { "name": "Pa11y", "url": "/api/accessibility-check/pa11y/" },
+    { "name": "IBM", "url": "/api/accessibility-check/ibm/" }
+  ]
+}
