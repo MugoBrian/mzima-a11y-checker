@@ -1,12 +1,10 @@
-<div class="checker-data">
-  <ng-container *ngIf="!isLoading || results; else spinner">
+<div class="checker-data" *ngIf="!isLoading; else spinner">
     <ng-container *ngIf="results">
       <h2>Accessibility Violations</h2>
       <ng-container *ngFor="let result of results.violations">
         <checker-card [result]="result"></checker-card>
       </ng-container>
     </ng-container>
-  </ng-container>
   <!-- {{ results.violations }} -->
 </div>
 

@@ -2,17 +2,13 @@ import {
   Component,
   Input,
   OnInit,
-  ViewChild,
-  ViewContainerRef,
 } from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
 import { DataService } from '../services/data/data.service';
-import { SafeHtml } from '@angular/platform-browser';
 import { Results } from '../interfaces/data.model';
 import { Engine } from '../interfaces/engine.interface';
 import { EngineService } from '../services/engines/engines.service';
