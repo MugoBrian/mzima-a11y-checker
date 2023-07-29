@@ -1,0 +1,44 @@
+@import '@angular/material/theming';
+
+@include mat-core();
+
+$primary-palette: (
+  300: var(--color-primary-70),
+  400: var(--color-primary-60),
+  500: var(--color-primary-50),
+  contrast: (
+    300: var(--color-neutral-100),
+    400: var(--color-neutral-100),
+    500: var(--color-neutral-100),
+  ),
+);
+
+$accent-palette: (
+  400: var(--color-neutral-50),
+  500: var(--color-neutral-40),
+  600: var(--color-neutral-30),
+  contrast: (
+    400: var(--color-neutral-10),
+    500: var(--color-neutral-100),
+    600: var(--color-neutral-100),
+  ),
+);
+
+$warn-palette: (
+  400: var(--color-accent-shade),
+  500: var(--color-accent),
+  600: var(--color-accent-tint),
+  contrast: (
+    400: var(--color-accent-contrast),
+    500: var(--color-accent-contrast),
+    600: var(--color-accent-contrast),
+  ),
+);
+
+$checker-primary: mat-palette($primary-palette, 400, 300, 500);
+$checker-accent: mat-palette($accent-palette, 500, 400, 500);
+$checker-warn: mat-palette($warn-palette, 500, 400, 500);
+
+$checker-theme: mat-light-theme($checker-primary, $checker-accent, $checker-warn);
+
+@include angular-material-theme($checker-theme);

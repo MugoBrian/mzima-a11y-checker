@@ -3,7 +3,7 @@
     <form class="form" [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
       <div class="form-textarea form-row">
         <mat-form-field class="input" appearance="outline">
-          <mat-label>Your Code</mat-label>
+          <mat-label class="mat-label">Your Code</mat-label>
           <textarea
             matInput
             required
@@ -38,21 +38,28 @@
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="run form-row">
-        <button
-          mat-button
-          id="run_button"
-          color="custom"
-          class="run_button"
-          [disabled]="isLoading || codeTestingForm.invalid"
-        >
-          Run Checker
-        </button>
+      <div class="form-row">
+        <ng-container *ngIf="!isLoading; else cancelButton">
+          <button
+            mat-button
+            id="run_button"
+            class="run_button"
+            [disabled]="codeTestingForm.invalid"
+          >
+            Run Checker
+          </button>
+        </ng-container>
       </div>
     </form>
   </div>
   <div class="data-group">
-    Hello
-    <checker-data  [results]="results" [isLoading]="isLoading"></checker-data>
+    <h1 *ngIf="error">{{ error }}</h1>
+    <checker-data [results]="results" [isLoading]="isLoading"></checker-data>
   </div>
 </div>
+
+<ng-template #cancelButton>
+  <button mat-button id="run_button" class="run_button" (click)="cancelTest()">
+    Stop
+  </button>
+</ng-template>

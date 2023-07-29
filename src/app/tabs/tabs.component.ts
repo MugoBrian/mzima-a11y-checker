@@ -1,13 +1,5 @@
-import {
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../services/data/data.service';
 import { Results } from '../interfaces/data.model';
 import { Engine } from '../interfaces/engine.interface';
@@ -17,6 +9,7 @@ import { EngineService } from '../services/engines/engines.service';
   selector: 'checker-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss'],
+  // encapsulation: ViewEncapsulation.None,
 })
 export class TabsComponent implements OnInit {
   @Input() color = 'custom';
@@ -27,6 +20,8 @@ export class TabsComponent implements OnInit {
   isLoading = false;
   engines!: Engine[];
   selectedEngine!: string;
+  @Input() custom = 'custom';
+  error!: string;
 
   constructor(
     private fb: FormBuilder,
@@ -49,13 +44,31 @@ export class TabsComponent implements OnInit {
 
   runTest() {
     const userInput = this.codeTestingForm.get('userInput')?.value;
+    const tool = this.codeTestingForm.get('tool')?.value;
     this.isLoading = true;
     console.log("This is the User's input", userInput);
-    this.dataService.fetchInput(userInput)?.subscribe((data) => {
-      // this.isLoading = true
-      console.log('Results', data);
-      this.results = data;
-      this.isLoading = false;
-    });
+    console.log(tool);
+    console.log(this.selectedEngine);
+    this.dataService
+      .fetchInput(userInput, this.engines, tool)
+      ?.subscribe({
+        next: (data: Results) => {
+          // this.isLoading = true
+          console.log('Results', data);
+          this.results = data;
+          this.isLoading = false;
+        },
+        error: (error)=>{
+          this.error = error.error.statusText;
+          console.log(this.error);
+          this.isLoading = false;
+        }
+      })
+  }
+
+  cancelTest() {
+    this.dataService.cancelRequest();
+    this.isLoading = false
+    this.results;
   }
 }
