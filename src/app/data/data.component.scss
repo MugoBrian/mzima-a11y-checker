@@ -1,17 +1,29 @@
-.checker-data{
-    // background: red;
-    // display: flex;
-    // position:absolute;
+.checker-data {
+  // background: red;
+  // display: flex;
+  // position:absolute;
 }
 
-.spinner{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 50%;
-    margin-top: 10%;
+/* error-styles.css */
+.error-message {
+  color: var(--color-accent);
+  font-weight: bold;
+  margin-top: 5px;
+  opacity: 50;
+  transition: opacity 0.1s ease;
 }
 
-.mat-spinner.mat-custom{
-    color:var(--primary-color-60)
+.show-error {
+  opacity: 1;
+}
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.mat-spinner.mat-custom {
+  color: var(--primary-color-60);
 }

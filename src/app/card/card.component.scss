@@ -1,3 +1,24 @@
-.card-title{
+.mat-card {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+  &-title {
     color: var(--color-accent);
+  }
+  
+}
+
+.mat-card-chip {
+    background-color: var(--color-accent);
+  }
+
+.mat-card-expansion {
+  padding: 10px;
+  margin: 10px;
+  &-description {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
 }

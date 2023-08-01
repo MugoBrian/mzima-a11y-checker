@@ -3,7 +3,7 @@
     <form class="form" [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
       <div class="form-textarea form-row">
         <mat-form-field class="input" appearance="outline">
-          <mat-label class="mat-label">Your Code</mat-label>
+          <mat-label class="mat-label" >Your Code</mat-label>
           <textarea
             matInput
             required
@@ -53,13 +53,13 @@
     </form>
   </div>
   <div class="data-group">
-    <h1 *ngIf="error">{{ error }}</h1>
-    <checker-data [results]="results" [isLoading]="isLoading"></checker-data>
+    <checker-data [results]="results" [error]="error" [isLoading]="isLoading"></checker-data>
   </div>
 </div>
 
 <ng-template #cancelButton>
   <button mat-button id="run_button" class="run_button" (click)="cancelTest()">
+    <mat-icon>cancel</mat-icon>
     Stop
   </button>
 </ng-template>

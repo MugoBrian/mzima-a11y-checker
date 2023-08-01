@@ -9,7 +9,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [MainComponent],
-  imports: [CommonModule, HeaderModule, MatIconModule, TabsModule, DataModule, MatProgressSpinnerModule],
+  imports: [
+    CommonModule,
+    HeaderModule,
+    MatIconModule,
+    TabsModule,
+    DataModule,
+    MatProgressSpinnerModule,
+  ],
   exports: [MainComponent],
 })
 export class MainModule {}

@@ -1,5 +1,5 @@
 export interface Results{
-    violations: Violations[];
+    violations?: Violations[];
 }
 
 export interface Violations{
@@ -15,9 +15,9 @@ export interface Violations{
 export interface Node{
     any: unknown[];
     all: unknown[];
-    none: unknown[];
-    impact: string[];
-    html: string;
-    target: string[];
     failureSummary: string;
+    html: string;
+    impact: string[];
+    none: unknown[];
+    target: string[];
 }
