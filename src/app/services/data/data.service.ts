@@ -14,12 +14,12 @@ export class DataService {
   private cancel = new Subject<void>();
 
   fetchInput(userInput: string, engineArray: Engine[], tool: string) {
-    // const engine = engineArray.find((engine) => engine.name === tool);
+    const engine = engineArray.find((engine) => engine.name === tool);
     if (userInput.startsWith('https://') || userInput.startsWith('http://')) {
       userInput = userInput.trim();
-      return this.checkAccessibility(`/api/accessibility-check/axe/url/`, userInput);
+      return this.checkAccessibility(`${engine?.url}url/`, userInput);
     } else {
-      return this.checkAccessibility(`/api/accessibility-check/axe/code/`, userInput);
+      return this.checkAccessibility(`${engine?.url}code/`, userInput);
     }
   }
 
