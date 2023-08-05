@@ -2,13 +2,32 @@
 @import 'styles/_pallete';
 @import 'styles/_theme';
 
-html,
-body {
-  height: 100%;
+// html,
+// body {
+//   height: 100%;
+// }
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
+html,
 body {
-  margin: 0;
+  height: 100vh;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  cursor: pointer;
+}
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined{
+  background-color: red !important;
+}

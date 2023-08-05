@@ -1,60 +1,57 @@
-<div>
-  <div class="form-group">
-    <form class="form" [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
-      <div class="form-textarea form-row">
-        <mat-form-field class="input" appearance="outline">
-          <mat-label class="mat-label" >Your Code</mat-label>
-          <textarea
-            matInput
-            required
-            cdkTextareaAutosize
-            cdkAutosizeMinRows="2"
-            cdkAutosizeMaxRows="10"
-            formControlName="userInput"
-            placeholder="Paste your code or url here"
-          >
-          </textarea>
-          <mat-error
-            *ngIf="codeTestingForm.get('userInput')?.hasError('required')"
-          >
-            Kindly paste your code or website url
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="form-row">
-        <mat-form-field appearance="outline">
-          <mat-label>Select Engine</mat-label>
-          <mat-select
-            formControlName="tool"
-            (ngModel)="(selectedEngine)"
-            name="engine"
-          >
-            <mat-option
-              *ngFor="let engine of engines; let i = index"
-              [value]="engine.name"
-            >
-              {{ engine.name }}</mat-option
-            >
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="form-row">
-        <ng-container *ngIf="!isLoading; else cancelButton">
-          <button
-            mat-button
-            id="run_button"
-            class="run_button"
-            [disabled]="codeTestingForm.invalid"
-          >
-            Run Checker
-          </button>
-        </ng-container>
-      </div>
-    </form>
-  </div>
-  <div class="data-group">
-    <checker-data [results]="results" [error]="error" [isLoading]="isLoading"></checker-data>
-  </div>
+<div class="form-group">
+  <form class="form" [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
+    <mat-form-field class="input" appearance="outline">
+      <mat-label class="mat-label">Your Code</mat-label>
+      <textarea
+        matInput
+        required
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="10"
+        formControlName="userInput"
+        placeholder="Paste your code or url here"
+      >
+      </textarea>
+      <mat-error *ngIf="codeTestingForm.get('userInput')?.hasError('required')">
+        Kindly paste your code or website url
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mat-select" appearance="outline">
+      <mat-label>Select Engine</mat-label>
+      <mat-select
+        panelClass="engine-select"
+        formControlName="tool"
+        (ngModel)="(selectedEngine)"
+        name="engine"
+      >
+        <mat-option
+          *ngFor="let engine of engines; let i = index"
+          [value]="engine.name"
+        >
+          {{ engine.name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
+    <ng-container *ngIf="!isLoading; else cancelButton">
+      <button
+        mat-button
+        id="run_button"
+        class="run_button"
+        [disabled]="codeTestingForm.invalid"
+      >
+        Run Checker
+      </button>
+    </ng-container>
+  </form>
+</div>
+<div class="data-group">
+  <checker-data
+    [results]="results"
+    [error]="error"
+    [isLoading]="isLoading"
+  ></checker-data>
 </div>
 
 <ng-template #cancelButton>
