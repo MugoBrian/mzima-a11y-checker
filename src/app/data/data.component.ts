@@ -9,7 +9,5 @@ import { Results } from '../interfaces/data.model';
 export class DataComponent {
   @Input() results!: Results;
   @Input() isLoading = false;
-  @Input() error!:string;
-
-
+  @Input() error!: string;
 }
