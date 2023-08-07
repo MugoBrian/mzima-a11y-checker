@@ -5,20 +5,25 @@
   &-title {
     color: var(--color-accent);
   }
-  
 }
 
 .mat-card-chip {
-    background-color: var(--color-accent);
-  }
+  background-color: var(--color-accent);
+}
 
 .mat-card-expansion {
   padding: 10px;
   margin: 10px;
-  &-description {
+  &-description,
+  pre {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    
+    color: var(--color-black-shade)
   }
+}
+
+pre {
+  word-wrap: break-word;
+  width: 50%;
 }

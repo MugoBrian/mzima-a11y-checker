@@ -1,46 +1,49 @@
-.form-group {
-  padding: 10px;
-  border-radius: 4px;
-  border: 5px solid var(--neutral-20);
-  height: 40%;
-  background: var(--neutral-white);
-  font-variant-numeric: lining-nums proportional-nums;
-}
-::ng-deep .mat-form-field {
-  .mat-form-field-label {
-    background-color: black;
-  }
-}
 .form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  width: 100%;
-  height: 100%;
-  &-textarea {
+  width: 500px;
+  margin: 50px auto 0 auto;
+  @media screen and (max-width: 720px) {
     width: 70%;
+    margin: 0 auto;
   }
+  @media screen and (max-width: 400px) {
+    width: 90%;
+  }
+  .input {
+    width: 100%;
+  }
+  // padding: 10px;
+  // border-radius: 4px;
+  // border: 5px solid var(--neutral-20);
+  // height: 40%;
+  // background: var(--neutral-white);
+  // font-variant-numeric: lining-nums proportional-nums;
 }
-
-input {
-  width: 100%;
-}
+// ::ng-deep .mat-form-field {
+//   .mat-form-field-label {
+//     background-color: black;
+//   }
+// }
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   align-content: center;
+//   padding-top: 10px;
+//   padding-bottom: 5px;
+//   width: 100%;
+//   height: 100%;
+//   &-textarea {
+//     width: 70%;
+//   }
+// }
 
 .run_button {
   display: flex;
-  width: 145px;
-  height: 45px;
   font-size: 17px;
-  padding: 5px 15px;
-  justify-content: center;
-  align-items: center;
+  padding: 25px 20px;
   background-color: var(--color-primary-60);
   border-radius: 4px;
-  cursor: pointer;
 
   &_icon {
     width: 42px;
@@ -48,23 +51,27 @@ input {
   }
 }
 
-.input {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  align-self: stretch;
-  border-radius: 4px;
-  border: 1px solid var(--neutral-neutral-30);
-}
+// .mat-mdc-text-field-wrapper.mdc-text-field--outlined{
+//   background-color: red !important;
+// } 
 
-// data group
+// .input {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-start;
+//   align-self: stretch;
+//   border-radius: 4px;
+//   border: 1px solid var(--neutral-neutral-30);
+// }
 
-data-group {
-  border-radius: 4px;
-  border: 5px solid var(--neutral-20);
-  height: 60%;
-  margin-top: 10px;
-  background: red;
+// // data group
 
-  font-variant-numeric: lining-nums proportional-nums;
-}
+// data-group {
+//   border-radius: 4px;
+//   border: 5px solid var(--neutral-20);
+//   height: 60%;
+//   margin-top: 10px;
+//   background: red;
+
+//   font-variant-numeric: lining-nums proportional-nums;
+// }
