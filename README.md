@@ -61,7 +61,7 @@ Examples and instructions on how to use the project.
 
 By following these structured steps, you can efficiently initiate and manage accessibility checks for your code or website. This approach ensures a clear and organized process, making it easier to perform thorough accessibility assessments.
 
-[![Mzima A11y Checker Interface](https://github.com/MugoBrian/mzima-a11y-checker/blob/main/src/assets/images/usage.png)]
+![Mzima A11y Checker Interface](https://github.com/MugoBrian/mzima-a11y-checker/blob/main/src/assets/images/usage.png)]
 
 ## Features
 List of key features:
