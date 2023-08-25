@@ -87,6 +87,7 @@ Open the browser and navigate to : http://localhost:3000
 
 Usage
 Examples and instructions on how to use your project.
+[!Mzima A11y Checker Interface(https://github.com/MugoBrian/mzima-a11y-checker/blob/main/src/assets/images/usage.png)]
 
 Features
 List of key features:
