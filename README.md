@@ -1,6 +1,6 @@
 # Mzima A11y Checker
 
-Short description of what your project does.
+Web accessibility checker tool that allows you to check for web accessibility issues in your code or website url.
 
 ## Table of Contents
 
@@ -22,7 +22,9 @@ Instructions on how to install your project.
 
 ## Usage
 
+
 Examples and instructions on how to use your project.
+
 
 ## Configuration
 
@@ -59,4 +61,41 @@ How users can seek support or contact you for assistance.
 ## Acknowledgments
 
 Credits to external libraries, frameworks, or contributors.
+Requirements
+Node version > 18.x.x
+
+To run the a11y-checker-api locally, follow these steps:
+
+Clone the repository:
+
+git clone https://github.com/MugoBrian/a11y-checker-api.git
+
+Navigate to the server directory:
+
+cd a11y-checker-api
+
+Install dependencies:
+
+npm install
+
+Start the server:
+
+npm run serve
+
+Running
+Open the browser and navigate to : http://localhost:3000
+
+Usage
+Examples and instructions on how to use your project.
+
+Features
+List of key features:
+
+It has the capability to conduct accessibility checks on both HTML code and website URLs.
+Additionally, it offers support for executing accessibility assessments using prominent libraries such as pa11y, axe-dev core, and the IBM Accessibility Checker. This functionality empowers the project to comprehensively evaluate and ensure accessibility standards across different dimensions.
+Support and Contact
+How users can seek support or contact you for assistance. Incase of any issues raising it in the Github Issues tab or contact me
+
+Acknowledgments
+Credits to pa11y, axe-dev core and IBM Accessibility Checker libraries.
 
