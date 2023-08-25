@@ -31,7 +31,7 @@ Clone the repository:
 
 Navigate to the server directory:
 
-`cd a11y-checker-api`
+`cd mzima-a11y-checker`
 
 Install dependencies:
 
