@@ -1,6 +1,7 @@
 .form {
   width: 500px;
   margin: 50px auto 0 auto;
+
   @media screen and (max-width: 720px) {
     width: 70%;
     margin: 0 auto;
@@ -11,33 +12,7 @@
   .input {
     width: 100%;
   }
-  // padding: 10px;
-  // border-radius: 4px;
-  // border: 5px solid var(--neutral-20);
-  // height: 40%;
-  // background: var(--neutral-white);
-  // font-variant-numeric: lining-nums proportional-nums;
 }
-// ::ng-deep .mat-form-field {
-//   .mat-form-field-label {
-//     background-color: black;
-//   }
-// }
-// .form {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   align-content: center;
-//   padding-top: 10px;
-//   padding-bottom: 5px;
-//   width: 100%;
-//   height: 100%;
-//   &-textarea {
-//     width: 70%;
-//   }
-// }
-
 .run_button {
   display: flex;
   font-size: 17px;
@@ -51,9 +26,21 @@
   }
 }
 
+.switch_tab_button {
+  margin-bottom: 0;
+  margin-bottom: 5px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-left: 3px;
+  font-size: 17px;
+}
+.active {
+  background-color: var(--color-primary-60);
+}
+
 // .mat-mdc-text-field-wrapper.mdc-text-field--outlined{
 //   background-color: red !important;
-// } 
+// }
 
 // .input {
 //   display: flex;

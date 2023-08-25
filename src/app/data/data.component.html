@@ -2,18 +2,18 @@
   <h3
     color="warn"
     class="error-message spinner"
-    *ngIf="error || isLoading && results"
+    *ngIf="error || (isLoading && results)"
   >
     <mat-icon matSuffix>error_outline</mat-icon>
     {{ error }}
   </h3>
-  <ng-container *ngIf="results.violations !== undefined || error === ''">
-    <h2>Accessibility Violations</h2>
+
+  <ng-container *ngIf="results.violations === [] || error === ''">
+    <h2 class="h2">Accessibility Violations</h2>
     <ng-container *ngFor="let result of results.violations">
-      <checker-card [result]="result"></checker-card>
+      <checker-card class="checker-card" [result]="result"></checker-card>
     </ng-container>
   </ng-container>
-  <!-- {{ results.violations }} -->
 </div>
 
 <ng-template #spinner>

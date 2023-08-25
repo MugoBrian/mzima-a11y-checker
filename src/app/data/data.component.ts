@@ -7,7 +7,7 @@ import { Results } from '../interfaces/data.model';
   styleUrls: ['./data.component.scss'],
 })
 export class DataComponent {
-  @Input() results!: Results;
+  @Input() results: Results = { violations: [] };
   @Input() isLoading = false;
   @Input() error!: string;
 }

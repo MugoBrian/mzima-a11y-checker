@@ -28,6 +28,11 @@ img {
 button {
   cursor: pointer;
 }
-.mat-mdc-text-field-wrapper.mdc-text-field--outlined{
-  background-color: red !important;
+// .mat-mdc-text-field-wrapper.mdc-text-field--outlined{
+//   background-color: red !important;
+// }
+.mat-button {
+  font-size: 17px;
+  background-color: var(--color-primary-60);
+  border-radius: 4px;
 }

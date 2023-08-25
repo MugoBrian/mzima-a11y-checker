@@ -1,7 +1,24 @@
 .checker-data {
-  // background: red;
-  // display: flex;
-  // position:absolute;
+  
+  padding: 16px;
+  margin-left: 16px;
+  width: 800px;
+  margin: 48px auto 0 auto;
+
+  @media screen and (max-width: 720px) {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 8px;
+  }
+  @media screen and (max-width: 400px) {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+}
+.h2 {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
 }
 
 /* error-styles.css */
