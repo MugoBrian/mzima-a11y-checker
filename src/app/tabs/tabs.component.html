@@ -1,19 +1,59 @@
-<div class="form-group">
+<div>
   <form class="form" [formGroup]="codeTestingForm" (ngSubmit)="runTest()">
+    <div class="button-group">
+      <button
+        type="button"
+        mat-button
+        class="switch_tab_button"
+        [class.active]="activeTab === 1"
+        (click)="switchTabs(1)"
+      >
+        Test Url
+      </button>
+      <button
+        type="button"
+        mat-button
+        class="switch_tab_button"
+        [class.active]="activeTab === 2"
+        (click)="switchTabs(2)"
+      >
+        Test Code
+      </button>
+    </div>
     <mat-form-field class="input" appearance="outline">
-      <mat-label class="mat-label">Your Code</mat-label>
+      <mat-label class="mat-label">
+        {{ activeTab === 1 ? 'Your Website Url' : 'Your Code' }}
+      </mat-label>
+      <input
+        *ngIf="activeTab === 1"
+        matInput
+        required
+        formControlName="urlInput"
+        placeholder="Paste your website url here"
+      />
       <textarea
+        *ngIf="activeTab === 2"
         matInput
         required
         cdkTextareaAutosize
         cdkAutosizeMinRows="2"
         cdkAutosizeMaxRows="10"
-        formControlName="userInput"
-        placeholder="Paste your code or url here"
+        formControlName="codeInput"
+        placeholder="Paste your code here"
       >
       </textarea>
-      <mat-error *ngIf="codeTestingForm.get('userInput')?.hasError('required')">
-        Kindly paste your code or website url
+      <mat-error
+        *ngIf="
+          this.codeTestingForm
+            .get(this.activeTab === 1 ? 'urlInput' : 'codeInput')
+            ?.hasError('required') &&
+          this.codeTestingForm.get(
+            this.activeTab === 1 ? 'urlInput' : 'codeInput'
+          )?.touched
+        "
+      >
+        Kindly
+        {{ activeTab === 1 ? 'paste your website url' : 'paste your code' }}
       </mat-error>
     </mat-form-field>
 
